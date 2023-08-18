@@ -10,6 +10,7 @@ import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -148,7 +149,7 @@ public class UserProfileService {
 		
 		if(domainUpdate.getOperation().toLowerCase().equals("add")) {
 			List<Domain> domainList = user.getDomains();
-			if(domainList == null) {
+			if(Objects.isNull(domainList)) {
 				domainList = new ArrayList<>();
 				user.setDomains(domainList);
 			}
@@ -157,7 +158,7 @@ public class UserProfileService {
 		} else {
 			
 			List<Domain> domainList = user.getDomains();
-			if(domainList == null) 
+			if(Objects.isNull(domainList) || domainList.isEmpty()) 
 				return;
 			domainList.remove(domain); // Overridden equals in DOMAIN class
 			userProfileRepository.save(user);
@@ -208,6 +209,7 @@ public class UserProfileService {
 		} else if(operation.equals("remove")) {
 			// TODO This is a very unlikely operation. Which is done only by the admin. Hence will be implemented
 			// in the future releases.
+			// this.domainRepository.deleteDomainByName(domain.getDomainName());
 		}
 		return result;
 	}
