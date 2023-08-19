@@ -3,6 +3,7 @@ package com.pthore.service.userdetails.entities;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+@Entity
 public class PrivateGroupMember {
 
 	@Id

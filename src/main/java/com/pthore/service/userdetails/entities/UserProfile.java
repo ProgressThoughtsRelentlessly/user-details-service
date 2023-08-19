@@ -105,7 +105,7 @@ public class UserProfile {
 	@OneToMany(orphanRemoval= true, mappedBy = "user", fetch = FetchType.LAZY) 
 	private Set<PrivateGroupMember> privateGroupMembers;
 	
-	@OneToMany(orphanRemoval=true, mappedBy="user", fetch = FetchType.LAZY)
+	@OneToMany(orphanRemoval=true, mappedBy="joiner", fetch = FetchType.LAZY)
 	private List<PrivateGroupJoinRequest> privateGroupJoinRequests;
 	
 	
